@@ -1,0 +1,7 @@
+{
+  "name": "Venus Gecko - Premium Crested Gecko Boutique",
+  "description": "A high-end sales and gallery platform for Crested Gecko breeders, featuring advanced filtering, pedigree tracking, and multilingual support.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
