@@ -1,0 +1,144 @@
+/* Venus Gecko — design tokens (Bottega Veneta palette) */
+:root {
+  /* Core parchment / ink */
+  --vg-bg: #F2EADF;
+  --vg-bg-2: #EDE3D3;
+  --vg-paper: #F8F2E7;
+  --vg-ink: #1A201C;
+  --vg-ink-2: #2B322E;
+  --vg-muted: #6E6A60;
+  --vg-line: #D9CDB6;
+  --vg-line-2: #C4B596;
+
+  /* Bottega greens */
+  --vg-green: #1F3A2E;
+  --vg-green-dark: #132520;
+  --vg-green-deep: #0E1A14;
+
+  /* Tobacco & tan */
+  --vg-tobacco: #6B4423;
+  --vg-tobacco-2: #8A5A30;
+  --vg-cream: #E8DCC4;
+  --vg-sand: #C8A25A;
+
+  /* Status */
+  --vg-ok: #3B6B4A;
+  --vg-warn: #9A6A1F;
+  --vg-danger: #7A2E1F;
+
+  /* Radii / spacing */
+  --vg-r-xs: 2px;
+  --vg-r-sm: 6px;
+  --vg-r-md: 10px;
+  --vg-r-lg: 14px;
+  --vg-r-xl: 20px;
+
+  /* Type — Toss/Claude-clean: sans-first, no italic display */
+  --vg-serif: "Pretendard", "Inter", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Helvetica Neue", Arial, sans-serif;
+  --vg-sans: "Pretendard", "Inter", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Helvetica Neue", Arial, sans-serif;
+  --vg-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+html[data-theme="dark"] {
+  --vg-bg: #0E1A14;
+  --vg-bg-2: #132520;
+  --vg-paper: #162A23;
+  --vg-ink: #EFE7D6;
+  --vg-ink-2: #D7CCB3;
+  --vg-muted: #8F9188;
+  --vg-line: #25352E;
+  --vg-line-2: #32473E;
+  --vg-green: #2D5A47;
+  --vg-green-dark: #1F3A2E;
+  --vg-green-deep: #0A150F;
+  --vg-cream: #C8B891;
+  --vg-tobacco: #B08253;
+  --vg-tobacco-2: #C49868;
+  --vg-sand: #D4B87A;
+  --vg-ok: #6A9E7A;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--vg-bg); color: var(--vg-ink); font-family: var(--vg-sans); -webkit-font-smoothing: antialiased; }
+body { font-size: 14px; line-height: 1.55; letter-spacing: -0.005em; font-feature-settings: "tnum" 1, "ss01" 1; }
+
+.vg-serif { font-family: var(--vg-serif); font-weight: 600; letter-spacing: -0.02em; }
+.vg-mono { font-family: var(--vg-mono); letter-spacing: 0; }
+.vg-eyebrow { font-family: var(--vg-sans); font-size: 11px; font-weight: 500; letter-spacing: 0.02em; color: var(--vg-muted); text-transform: none; }
+.vg-rule { height: 1px; background: var(--vg-line); border: 0; }
+.vg-rule-dark { height: 1px; background: var(--vg-line-2); border: 0; }
+
+.vg-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 20px; font-family: var(--vg-sans); font-size: 13px; font-weight: 500; letter-spacing: -0.005em;
+  background: var(--vg-ink); color: var(--vg-bg); border: 1px solid var(--vg-ink);
+  border-radius: 10px;
+  cursor: pointer; transition: opacity .15s, background .15s;
+}
+.vg-btn:hover { opacity: 0.88; }
+.vg-btn-primary { background: var(--vg-green); color: var(--vg-cream); border-color: var(--vg-green); }
+.vg-btn-ghost { background: transparent; color: var(--vg-ink); border: 1px solid var(--vg-line-2); }
+.vg-btn-ghost:hover { background: var(--vg-bg-2); opacity: 1; }
+.vg-btn-link { background: transparent; border: 0; padding: 4px 0; color: var(--vg-ink); text-transform: none; letter-spacing: -0.005em; font-size: 13px; font-weight: 500; cursor: pointer; }
+.vg-btn-link:hover { color: var(--vg-green); }
+
+/* Placeholder photo: subtly-striped */
+.vg-photo {
+  position: relative; overflow: hidden; background: var(--vg-bg-2);
+  background-image:
+    repeating-linear-gradient(135deg, rgba(0,0,0,.04) 0 1px, transparent 1px 8px);
+}
+.vg-photo-label {
+  position: absolute; left: 14px; bottom: 14px;
+  font-family: var(--vg-mono); font-size: 10px; letter-spacing: 0;
+  background: rgba(255,255,255,.85); color: var(--vg-ink); padding: 5px 9px; border-radius: 6px; backdrop-filter: blur(6px);
+}
+html[data-theme="dark"] .vg-photo-label { background: rgba(0,0,0,.5); color: var(--vg-ink); }
+
+/* Tonal photo — colored backgrounds for visual rhythm */
+.vg-photo-green { background: var(--vg-green); }
+.vg-photo-green .vg-photo-label { background: rgba(255,255,255,.18); color: var(--vg-cream); }
+.vg-photo-tobacco { background: var(--vg-tobacco); }
+.vg-photo-tobacco .vg-photo-label { background: rgba(255,255,255,.18); color: var(--vg-cream); }
+.vg-photo-cream { background: var(--vg-cream); }
+.vg-photo-sand { background: var(--vg-sand); }
+.vg-photo-ink { background: var(--vg-ink); }
+.vg-photo-ink .vg-photo-label { background: rgba(255,255,255,.18); color: var(--vg-cream); }
+
+.vg-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; font-size: 12px; font-weight: 500; letter-spacing: -0.005em;
+  background: var(--vg-bg-2); color: var(--vg-ink-2); border: 1px solid transparent;
+  border-radius: 8px; cursor: pointer; white-space: nowrap; transition: background .15s, color .15s;
+  font-family: var(--vg-sans);
+}
+.vg-chip:hover { background: var(--vg-line); color: var(--vg-ink); }
+.vg-chip.is-on { background: var(--vg-ink); color: var(--vg-bg); border-color: var(--vg-ink); }
+.vg-chip-count { font-size: 10px; font-family: var(--vg-mono); opacity: 0.6; margin-left: 2px; }
+.vg-chip-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+.vg-status-available { color: var(--vg-ok); }
+.vg-status-reserved  { color: var(--vg-warn); }
+.vg-status-sold      { color: var(--vg-danger); opacity: .6; }
+
+/* Tweaks panel */
+.vg-tweaks {
+  position: fixed; right: 20px; bottom: 20px; z-index: 400;
+  background: var(--vg-paper); color: var(--vg-ink);
+  border: 1px solid var(--vg-line); border-radius: 14px; padding: 20px; width: 260px;
+  box-shadow: 0 18px 48px rgba(0,0,0,.14);
+  font-family: var(--vg-sans); font-size: 13px;
+  display: none;
+}
+.vg-tweaks.is-on { display: block; }
+.vg-tweaks h4 { margin: 0 0 14px; font-family: var(--vg-sans); font-size: 11px; font-weight: 600; letter-spacing: 0.02em; color: var(--vg-muted); text-transform: none; }
+.vg-tweaks .row { display: flex; justify-content: space-between; align-items: center; margin: 10px 0; }
+.vg-tweaks .seg { display: inline-flex; border: 1px solid var(--vg-line-2); border-radius: 8px; overflow: hidden; }
+.vg-tweaks .seg button { font-family: var(--vg-sans); font-size: 11px; padding: 5px 10px; background: transparent; border: 0; color: var(--vg-ink); cursor: pointer; }
+.vg-tweaks .seg button.is-on { background: var(--vg-ink); color: var(--vg-bg); }
+
+/* Scrollbar niceties for scroll regions in frames */
+.vg-scroll { overflow-y: auto; }
+.vg-scroll::-webkit-scrollbar { width: 8px; height: 8px; }
+.vg-scroll::-webkit-scrollbar-thumb { background: var(--vg-line-2); }
+.vg-scroll::-webkit-scrollbar-track { background: transparent; }
